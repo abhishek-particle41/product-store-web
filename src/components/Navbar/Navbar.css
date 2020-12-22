@@ -4,15 +4,8 @@
 
 .nav {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    background-color: aqua;
-}
-
-.nav-links {
-    width: 40px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
+    background-color: rgb(203, 203, 203);
 }
