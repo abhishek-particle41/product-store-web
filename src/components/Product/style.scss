@@ -1,0 +1,57 @@
+.shelf-item {
+  width: 20%;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #eee;
+
+    .shelf-item__buy-btn {
+      background-color: hsl(36, 100%, 46%);
+    }
+  }
+
+  &__thumb {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    padding: 20 20px;
+    height: 38px;
+    overflow: hidden;
+    max-lines: 2;
+  }
+
+  &__price {
+    height: 60px;
+    .val {
+      b {
+        font-size: 1.5em;
+        margin-left: 5px;
+      }
+    }
+
+    .installment {
+      color: #9c9b9b;
+    }
+  }
+
+  &__buy-btn {
+    background-color: #1b1a20;
+    color: #fff;
+    padding: 15px 0;
+    margin-top: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+  }
+}

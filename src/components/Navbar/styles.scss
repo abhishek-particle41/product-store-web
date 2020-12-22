@@ -1,0 +1,16 @@
+.navbar {
+    background-color: rgb(203, 203, 203);
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .home-icon{
+            margin: 5px;
+            padding-left: 10px;
+        }
+        .cart-icon{
+            padding-right: 10px;
+        }
+    }
+}
