@@ -1,4 +1,4 @@
-.shelf-item {
+.item {
   width: 20%;
   position: relative;
   text-align: center;
@@ -10,20 +10,25 @@
 
   &:hover {
     border: 1px solid #eee;
+    border-color: hsl(36, 100%, 46%);
 
-    .shelf-item__buy-btn {
+    .buy-btn {
       background-color: hsl(36, 100%, 46%);
     }
   }
 
-  &__thumb {
+  .thumb {
+    align-items: center;
+    margin: 0 auto;
     img {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-  &__title {
+  .title {
     position: relative;
     padding: 20 20px;
     height: 38px;
@@ -31,12 +36,13 @@
     max-lines: 2;
   }
 
-  &__price {
+  .price {
     height: 60px;
     .val {
       b {
-        font-size: 1.5em;
-        margin-left: 5px;
+        font-size: 1.2em;
+        white-space: nowrap;
+        // margin-left: 5px;
       }
     }
 
@@ -45,7 +51,7 @@
     }
   }
 
-  &__buy-btn {
+  .buy-btn {
     background-color: #1b1a20;
     color: #fff;
     padding: 15px 0;

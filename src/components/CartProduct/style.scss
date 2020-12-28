@@ -1,0 +1,50 @@
+.cart-item {
+  box-sizing: border-box;
+  padding: 5%;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.thumb {
+  vertical-align: top;
+  display: inline-block;
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.remove-icon {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding-left: 20px;
+  vertical-align: middle;
+  color: white;
+}
+
+
+.details{
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 20px;
+  .title {
+    color: #ececec;
+  }
+  
+  .desc {
+    color: #5b5a5e;
+  }    
+}
+
+.price {
+  
+  display: inline-block;
+  color: #eabf00;
+  text-align: right;
+  width: 25%;
+  vertical-align: middle
+}
+

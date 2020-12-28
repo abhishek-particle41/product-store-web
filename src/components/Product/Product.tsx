@@ -10,19 +10,19 @@ interface Props {
 const ProductView: React.FunctionComponent<Props> = ({ product }) => {
   return (
     <div
-      className="shelf-item"
+      className="item"
     >
-      <div className="shelf-item__thumb">
+      <div className="thumb">
         <img src={product.image}
           alt={product.title} title={product.title} />
       </div>
-      <p className="shelf-item__title">{product.title}</p>
-      <div className="shelf-item__price">
+      <p className="title">{product.title}</p>
+      <div className="price">
         <div className="val">
           <b> $ {product.price}</b>
         </div>
       </div>
-      <div className="shelf-item__buy-btn">Add to cart</div>
+      <div className="buy-btn">Add to cart</div>
     </div>
   );
 };
