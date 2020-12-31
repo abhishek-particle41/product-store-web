@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { product } from './ICartProduct'
+import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import { DeleteOutlined } from '@material-ui/icons';
 
 interface Props {
@@ -20,6 +21,9 @@ const CartProductView: React.FunctionComponent<Props> = ({ product }) => {
       <div className="details">
         <p className="title">{product.title}</p>
         <p className="desc">{product.description}</p>
+      </div>
+      <div className="counter">
+        <QuantityCounter />
       </div>
       <div className="price">
         <div className="val">

@@ -4,10 +4,6 @@ import { product } from "../../components/Product/IProduct"
 import ProductView from "../../components/Product/Product";
 import { Menu } from '@material-ui/icons';
 
-interface State {
-  isLoaded: boolean;
-}
-
 interface Item {
   id: number;
   title: String
@@ -15,7 +11,6 @@ interface Item {
 
 class HomeScreen extends React.Component {
   public state = {
-    isLoaded: false,
     items: []
   };
 
@@ -31,16 +26,16 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    var { isLoaded, items } = this.state;
-    console.log(items);
+    var { items } = this.state;
     return (
-      <div className="shelf-container">
-        {/* <Menu className="menu-icon" fontSize="large" /> */}
-        {items.map((value: product, index: number) => {
-          return (
-            <ProductView product={value} key={index} />
-          );
-        })}
+      <div className="home-screen" >
+        <div className="shelf-container">
+          {items.map((value: product, index: number) => {
+            return (
+              <ProductView product={value} key={index} />
+            );
+          })}
+        </div>
       </div>
     );
   }

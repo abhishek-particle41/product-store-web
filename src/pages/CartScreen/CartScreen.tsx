@@ -38,21 +38,11 @@ class CartScreen extends React.Component {
         for (const k in this.state.items) {
             cartProducts.push(this.state.items[k]);
         }
-        // const itemQuantity = cartProducts.reduce((sum: number, product: cartProducts) => {
-        //     return sum + product.itemQuantity;
-        // }, 0);
+
         return (
             <div className={"float-cart"}>
-                {/* <div className="cart-close-button" onClick={this.toggleCartDrawer}>X</div> */}
                 <div className="float-cart_content">
-                    <div className="float-cart_header">
-                        <div className={"trolley"} onClick={this.toggleCartDrawer}>
-                            <span className={"item-quantity-icon"}>2</span>
-                        </div>
-                        <span className="header-title">Cart</span>
-                    </div>
                     <div className="cart-shelf">
-                        {/* {cartProducts.map((value, index) => <CartProductContainer product={value} key={index} />)} */}
                         {items.map((value: product, index: number) => {
                             return (
                                 <CartProductView product={value} key={index} />

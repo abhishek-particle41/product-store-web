@@ -10,10 +10,10 @@
 
   &:hover {
     border: 1px solid #eee;
-    border-color: hsl(36, 100%, 46%);
+    border-color: #6d76f7;
 
     .buy-btn {
-      background-color: hsl(36, 100%, 46%);
+      background-color: #6d76f7;
     }
   }
 
@@ -44,10 +44,6 @@
         white-space: nowrap;
         // margin-left: 5px;
       }
-    }
-
-    .installment {
-      color: #9c9b9b;
     }
   }
 

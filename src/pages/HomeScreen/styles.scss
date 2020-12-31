@@ -1,4 +1,8 @@
-.shelf-container {
+.home-screen {
+  position:relative;
+  padding-top: 10px;
+  text-align: center;
+  .shelf-container {
     display: flex;
     flex-wrap: wrap;
     width: 95%;
@@ -7,3 +11,5 @@
       margin: 10px;
     }
   } 
+}
+
