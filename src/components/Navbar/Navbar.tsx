@@ -4,10 +4,6 @@ import './styles.scss'
 import { Home, ShoppingCart } from '@material-ui/icons';
 import SearchBar from "material-ui-search-bar";
 
-interface state {
-    clicked: boolean;
-}
-
 const Navbar = () => {
     const [scrolled, setScrolled] = React.useState(false);
     const handleScroll = () => {

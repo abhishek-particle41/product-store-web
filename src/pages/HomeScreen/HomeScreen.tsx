@@ -1,12 +1,8 @@
 import React from 'react';
 import './styles.scss'
 import { product } from "../../components/Product/IProduct"
-import ProductView from "../../components/Product/Product";
-
-interface Item {
-  id: number;
-  title: string
-}
+import ProductView from "../../components/Product/Product"
+import { getProducts } from "../../utils/services/productServices"
 
 class HomeScreen extends React.Component {
   public state = {
@@ -18,7 +14,6 @@ class HomeScreen extends React.Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          isLoaded: true,
           items: json,
         })
       })
