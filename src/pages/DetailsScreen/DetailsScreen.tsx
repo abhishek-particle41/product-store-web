@@ -1,14 +1,7 @@
 import React from 'react';
 import './styles.scss'
 import { product } from "../../components/Product/IProduct"
-import ProductView from "../../components/Product/Product";
-import { Menu } from '@material-ui/icons';
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
-
-interface Item {
-    id: number;
-    title: String
-}
 
 class DetailsScreen extends React.Component {
     public state = {

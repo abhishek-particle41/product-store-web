@@ -2,22 +2,9 @@ import React from 'react';
 import './styles.scss'
 import { product } from "../../components/CartProduct/ICartProduct"
 import CartProductView from "../../components/CartProduct/CartProduct";
-import { Menu } from '@material-ui/icons';
-
-interface State {
-    isLoaded: boolean,
-    isOpen: boolean;
-}
-
-interface Item {
-    id: number,
-    title: String;
-    description: String;
-}
 
 class CartScreen extends React.Component {
     public state = {
-        isOpen: true,
         items: []
     };
 
@@ -32,7 +19,7 @@ class CartScreen extends React.Component {
     }
 
     public render(): React.ReactNode {
-        var { isOpen, items } = this.state;
+        var { items } = this.state;
 
         const cartProducts: any = [];
         for (const k in this.state.items) {
@@ -52,10 +39,6 @@ class CartScreen extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    private toggleCartDrawer = () => {
-        // this.setState((prevState: State) => ({ isOpen: !prevState.isOpen }));
     }
 }
 

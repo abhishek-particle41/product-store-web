@@ -2,11 +2,10 @@ import React from 'react';
 import './styles.scss'
 import { product } from "../../components/Product/IProduct"
 import ProductView from "../../components/Product/Product";
-import { Menu } from '@material-ui/icons';
 
 interface Item {
   id: number;
-  title: String
+  title: string
 }
 
 class HomeScreen extends React.Component {
@@ -26,7 +25,7 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    var { items } = this.state;
+    const { items } = this.state;
     return (
       <div className="home-screen" >
         <div className="shelf-container">
