@@ -22,15 +22,13 @@ class CartScreen extends React.Component {
         var { items } = this.state;
 
         return (
-            <div className={"float-cart"}>
-                <div className="float-cart_content">
-                    <div className="cart-shelf">
-                        {items.map((value: product, index: number) => {
-                            return (
-                                <CartProductView product={value} key={index} />
-                            );
-                        })}
-                    </div>
+            <div className="float-cart">
+                <div className="cart-shelf">
+                    {items.map((value: product, index: number) => {
+                        return (
+                            <CartProductView product={value} key={index} />
+                        );
+                    })}
                 </div>
             </div>
         );
