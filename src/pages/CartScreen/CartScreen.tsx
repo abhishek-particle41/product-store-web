@@ -21,11 +21,6 @@ class CartScreen extends React.Component {
     public render(): React.ReactNode {
         var { items } = this.state;
 
-        const cartProducts: any = [];
-        for (const k in this.state.items) {
-            cartProducts.push(this.state.items[k]);
-        }
-
         return (
             <div className={"float-cart"}>
                 <div className="float-cart_content">
