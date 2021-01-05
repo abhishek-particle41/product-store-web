@@ -9,14 +9,14 @@ class HomeScreen extends React.Component {
     items: []
   };
 
+  setProducts = async () => {
+    this.setState({
+      items: await getProducts(),
+    })
+  }
+
   componentDidMount() {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          items: json,
-        })
-      })
+    this.setProducts()
   }
 
   render() {
