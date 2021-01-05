@@ -17,7 +17,7 @@ const Navbar = () => {
     }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
-    })
+    }, [])
 
     let x = ['navbar'];
     if (scrolled) {
