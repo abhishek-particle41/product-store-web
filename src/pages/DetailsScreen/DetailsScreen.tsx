@@ -37,8 +37,8 @@ class DetailsScreen extends React.Component {
                                     <span>${value.price}</span>
                                 </div>
                                 <p>{value.description}</p>
-                                <button className="cart">Add to cart</button>
-                                <AddToCartButton />
+                                {/* <button className="cart">Add to cart</button> */}
+                                <AddToCartButton id={value.id} />
                                 {/* <div className="counter">
                                     <QuantityCounter />
                                 </div> */}
