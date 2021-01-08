@@ -9,14 +9,14 @@ class HomeScreen extends React.Component {
     items: []
   };
 
-  setProducts = async () => {
+  addProducts = async () => {
     this.setState({
       items: await getProducts(),
     })
   }
 
   componentDidMount() {
-    this.setProducts()
+    this.addProducts()
   }
 
   render() {

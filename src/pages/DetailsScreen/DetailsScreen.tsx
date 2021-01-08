@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.scss'
 import { product } from "../../components/Product/IProduct"
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
+import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
 
 class DetailsScreen extends React.Component {
     public state = {
@@ -37,6 +38,7 @@ class DetailsScreen extends React.Component {
                                 </div>
                                 <p>{value.description}</p>
                                 <button className="cart">Add to cart</button>
+                                <AddToCartButton />
                                 {/* <div className="counter">
                                     <QuantityCounter />
                                 </div> */}
