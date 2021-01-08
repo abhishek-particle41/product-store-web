@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles.scss'
 import { product } from "../../components/Product/IProduct"
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
 import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
+import { RouteComponentProps, useLocation } from "react-router-dom";
 
-class DetailsScreen extends React.Component {
+interface Prop extends RouteComponentProps {
+    id: any
+}
+
+interface State {
+    items: []
+}
+
+class DetailsScreen extends React.Component<Prop, {}>{
     public state = {
         items: []
     };
 
+
     componentDidMount() {
+        // const { id } = this.props.location.state
+        // console.log(id)
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(json => {
                 this.setState({
-                    isLoaded: true,
                     items: json,
                 })
             })
@@ -22,6 +33,7 @@ class DetailsScreen extends React.Component {
 
     render() {
         var { items } = this.state;
+
         return (
             <div className="details-screen" >
                 {items.slice(2, 3).map((value: product) => {
@@ -37,11 +49,7 @@ class DetailsScreen extends React.Component {
                                     <span>${value.price}</span>
                                 </div>
                                 <p>{value.description}</p>
-                                {/* <button className="cart">Add to cart</button> */}
                                 <AddToCartButton id={value.id} />
-                                {/* <div className="counter">
-                                    <QuantityCounter />
-                                </div> */}
                             </div>
                         </div>
                     );

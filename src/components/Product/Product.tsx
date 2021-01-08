@@ -11,7 +11,12 @@ interface Props {
 const ProductView: React.FunctionComponent<Props> = ({ product }) => {
   let history = useHistory()
   return (
-    <div className="item" onClick={() => { history.push("/details") }}>
+    <div className="item" onClick={() => {
+      history.push({
+        pathname: '/details',
+        state: { id: 3 },
+      });
+    }}>
       <div className="thumb">
         <img src={product.image}
           alt={product.title} title={product.title} />
