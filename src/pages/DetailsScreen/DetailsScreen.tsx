@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
 import './styles.scss'
-import { product } from "../../components/Product/IProduct"
+import { Product } from "../../components/Product/IProduct"
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
 import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
-import { RouteComponentProps, useLocation } from "react-router-dom";
 
-interface Prop extends RouteComponentProps {
-    id: any
+interface IProps {
+    history: History;
+    match: any;
 }
 
-interface State {
-    items: []
-}
-
-class DetailsScreen extends React.Component<Prop, {}>{
+class DetailsScreen extends React.Component<IProps, {}>{
     public state = {
         items: []
     };
 
-
     componentDidMount() {
-        // const { id } = this.props.location.state
-        // console.log(id)
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(json => {
@@ -33,10 +26,10 @@ class DetailsScreen extends React.Component<Prop, {}>{
 
     render() {
         var { items } = this.state;
-
+        const productId: number = this.props.match.params.id
         return (
             <div className="details-screen" >
-                {items.slice(2, 3).map((value: product) => {
+                {items.slice((productId - 1), productId).map((value: Product) => {
                     return (
                         <div className="details" key={value.id}>
                             <div className="big-img">
