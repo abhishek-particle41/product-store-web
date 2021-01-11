@@ -7,6 +7,7 @@ import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
 interface IProps {
     history: History;
     match: any;
+    product: Product;
 }
 
 class DetailsScreen extends React.Component<IProps, {}>{
@@ -42,7 +43,7 @@ class DetailsScreen extends React.Component<IProps, {}>{
                                     <span>${value.price}</span>
                                 </div>
                                 <p>{value.description}</p>
-                                <AddToCartButton id={value.id} />
+                                <AddToCartButton {...value} />
                             </div>
                         </div>
                     );

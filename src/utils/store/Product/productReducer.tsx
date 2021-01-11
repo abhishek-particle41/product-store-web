@@ -13,7 +13,7 @@ export default function productReducer(
       return [
         ...state,
         {
-          id: action.payload.id
+          product: action.payload.product
         }
       ]
 
