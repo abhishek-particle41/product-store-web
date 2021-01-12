@@ -2,7 +2,7 @@ import {
   ADD_TO_CART,
 } from "./productActions";
 
-const initialState = [{}];
+const initialState: never[] = [];
 
 export default function productReducer(
   state = initialState,

@@ -1,11 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../utils/store/Product/productActions";
-import { Product } from '../Product/IProduct'
+import { Product } from '../../utils/store/types'
 import './style.scss'
-
-interface IAddToCart {
-    id: number
-}
 
 function AddToCartButton(product: Product) {
     const dispatch = useDispatch();

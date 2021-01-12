@@ -1,7 +1,8 @@
 import React from 'react';
 import './styles.scss'
-import { product } from "../../components/CartProduct/ICartProduct"
+import { Product } from "../../utils/store/types"
 import CartProductView from "../../components/CartProduct/CartProduct";
+import store from '../../utils/store/store'
 
 class CartScreen extends React.Component {
     public state = {
@@ -9,22 +10,17 @@ class CartScreen extends React.Component {
     };
 
     componentDidMount() {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    items: json,
-                })
-            })
+        this.setState({
+            items: store.getState().productReducer
+        })
     }
 
     public render(): React.ReactNode {
         var { items } = this.state;
-
         return (
             <div className="float-cart">
                 <div className="cart-shelf">
-                    {items.map((value: product, index: number) => {
+                    {items.map((value: Product, index: number) => {
                         return (
                             <CartProductView product={value} key={index} />
                         );

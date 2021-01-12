@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { Product } from './IProduct'
+import { Product } from '../../utils/store/types'
 import { useHistory } from 'react-router-dom'
 
 interface IProps {

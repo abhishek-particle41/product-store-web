@@ -1,4 +1,4 @@
-import { Product } from '../../../components/Product/IProduct'
+import { Product } from '../types'
 export const ADD_TO_CART = "ADD_TO_CART"
 export const actionTypes = {
   ADD_TO_CART: "ADD_TO_CART"

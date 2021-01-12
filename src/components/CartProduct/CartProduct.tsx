@@ -1,15 +1,16 @@
 import React from "react";
 import "./style.scss";
-import { product } from './ICartProduct'
+import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import { DeleteOutlined } from '@material-ui/icons';
 
 interface Props {
-  product: product;
+  product: Product;
   key: number;
 }
 
 const CartProductView: React.FunctionComponent<Props> = ({ product }) => {
+  console.log(product.title)
   return (
     <div
       className="cart-item"

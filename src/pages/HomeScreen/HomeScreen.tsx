@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss'
-import { Product } from "../../components/Product/IProduct"
+import { Product } from "../../utils/store/types"
 import ProductView from "../../components/Product/Product"
 import { getProducts } from "../../utils/services/productServices"
 
@@ -9,6 +9,7 @@ class HomeScreen extends React.Component {
     items: []
   };
 
+  // Need to change here
   addProducts = async () => {
     this.setState({
       items: await getProducts(),
