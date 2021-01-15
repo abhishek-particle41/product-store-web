@@ -10,7 +10,6 @@ interface Props {
 }
 
 const CartProductView: React.FunctionComponent<Props> = ({ product }) => {
-  console.log(product.title)
   return (
     <div
       className="cart-item"

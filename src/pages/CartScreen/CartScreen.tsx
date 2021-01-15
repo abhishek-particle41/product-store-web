@@ -20,9 +20,9 @@ class CartScreen extends React.Component {
         return (
             <div className="float-cart">
                 <div className="cart-shelf">
-                    {items.map((value: Product, index: number) => {
+                    {items.map((value: any, index: number) => {
                         return (
-                            <CartProductView product={value} key={index} />
+                            <CartProductView product={value.product} key={index} />
                         );
                     })}
                 </div>
