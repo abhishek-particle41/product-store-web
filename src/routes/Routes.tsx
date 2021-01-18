@@ -15,7 +15,7 @@ export default class Routes extends React.Component {
                     <Switch>
                         <Route path="/" exact component={HomeScreen} />
                         <Route path="/cart" component={CartScreen} />
-                        <Route path="/details" component={DetailsScreen} />
+                        <Route exact path="/details/:id" component={DetailsScreen} />
                     </Switch>
                 </Router>
             </div>

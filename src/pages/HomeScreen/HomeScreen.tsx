@@ -1,35 +1,29 @@
 import React from 'react';
 import './styles.scss'
-import { product } from "../../components/Product/IProduct"
-import ProductView from "../../components/Product/Product"
 import { getProducts } from "../../utils/services/productServices"
+import ProductList from "../../components/ProductList/ProductList"
 
 class HomeScreen extends React.Component {
   public state = {
     items: []
   };
 
-  setProducts = async () => {
+  // Need to change here
+  addProducts = async () => {
     this.setState({
       items: await getProducts(),
     })
   }
 
   componentDidMount() {
-    this.setProducts()
+    this.addProducts()
   }
 
   render() {
     const { items } = this.state;
     return (
       <div className="home-screen" >
-        <div className="shelf-container">
-          {items.map((value: product, index: number) => {
-            return (
-              <ProductView product={value} key={index} />
-            );
-          })}
-        </div>
+        <ProductList />
       </div>
     );
   }

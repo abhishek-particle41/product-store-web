@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles.scss'
-import { product } from "../../components/Product/IProduct"
+import { Product } from "../../utils/store/types"
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
+import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
 
-class DetailsScreen extends React.Component {
+interface IProps {
+    history: History;
+    match: any;
+    product: Product;
+}
+
+class DetailsScreen extends React.Component<IProps, {}>{
     public state = {
         items: []
     };
@@ -13,7 +20,6 @@ class DetailsScreen extends React.Component {
             .then(res => res.json())
             .then(json => {
                 this.setState({
-                    isLoaded: true,
                     items: json,
                 })
             })
@@ -21,9 +27,10 @@ class DetailsScreen extends React.Component {
 
     render() {
         var { items } = this.state;
+        const productId: number = this.props.match.params.id
         return (
             <div className="details-screen" >
-                {items.slice(2, 3).map((value: product) => {
+                {items.slice((productId - 1), productId).map((value: Product) => {
                     return (
                         <div className="details" key={value.id}>
                             <div className="big-img">
@@ -36,10 +43,7 @@ class DetailsScreen extends React.Component {
                                     <span>${value.price}</span>
                                 </div>
                                 <p>{value.description}</p>
-                                <button className="cart">Add to cart</button>
-                                {/* <div className="counter">
-                                    <QuantityCounter />
-                                </div> */}
+                                <AddToCartButton {...value} />
                             </div>
                         </div>
                     );

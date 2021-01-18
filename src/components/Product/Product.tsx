@@ -1,17 +1,21 @@
 import React from "react";
 import "./style.scss";
-import { product } from './IProduct'
+import { Product } from '../../utils/store/types'
 import { useHistory } from 'react-router-dom'
 
-interface Props {
-  product: product;
+interface IProps {
+  product: Product;
   key: number;
 }
 
-const ProductView: React.FunctionComponent<Props> = ({ product }) => {
+const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
   let history = useHistory()
   return (
-    <div className="item" onClick={() => { history.push("/details") }}>
+    <div className="item" onClick={() => {
+      history.push({
+        pathname: '/details/' + product.id,
+      });
+    }}>
       <div className="thumb">
         <img src={product.image}
           alt={product.title} title={product.title} />
@@ -23,7 +27,7 @@ const ProductView: React.FunctionComponent<Props> = ({ product }) => {
         </div>
       </div>
       <div className="buy-btn">Add to cart</div>
-    </div>
+    </div >
   );
 };
 
