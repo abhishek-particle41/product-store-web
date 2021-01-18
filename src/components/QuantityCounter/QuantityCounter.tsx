@@ -2,15 +2,14 @@ import React, { PureComponent } from "react";
 import './styles.scss'
 
 class QuantityCounter extends PureComponent<{}, { count: number }> {
-    state = { count: 0 };
+    state = { count: 1 };
 
     increaseCount = () => {
         this.setState({ count: this.state.count + 1 });
     }
 
     decreaseCount = () => {
-        this.setState({ count: this.state.count - 1 });
-        // this.setState(prevState => { count > 0 ? count : this.state.count - 1 });
+        this.state.count > 1 ? this.setState({ count: this.state.count - 1 }) : this.setState({ count: this.state.count })
     }
 
     render(): JSX.Element {
