@@ -2,6 +2,8 @@ import React from "react";
 import "./style.scss";
 import { Product } from '../../utils/store/types'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../utils/store/Product/productActions";
 
 interface IProps {
   product: Product;
@@ -10,12 +12,19 @@ interface IProps {
 
 const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
   let history = useHistory()
-  return (
-    <div className="item" onClick={() => {
+  const dispatch = useDispatch();
+
+  const handleClick = (e: any) => {
+    if (e.target.id === 'addToCart') {
+      dispatch(addToCart(product));
+    } else {
       history.push({
         pathname: '/details/' + product.id,
       });
-    }}>
+    }
+  }
+  return (
+    <div className="item" onClick={handleClick}>
       <div className="thumb">
         <img src={product.image}
           alt={product.title} title={product.title} />
@@ -26,7 +35,7 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
           <b> $ {product.price}</b>
         </div>
       </div>
-      <div className="buy-btn">Add to cart</div>
+      <div className="buy-btn" id="addToCart">Add to cart</div>
     </div >
   );
 };
