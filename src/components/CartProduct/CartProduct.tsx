@@ -4,12 +4,12 @@ import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import { DeleteOutlined } from '@material-ui/icons';
 
-function CartProductView(value: any, key: number) {
+function CartProductView(value: any) {
   let product: Product = value.product
+  const [totalPrice, setTotalPrice] = React.useState(product.price)
 
-  let handleClick = (value: any) => {
-    // handle changes from child
-    console.log(value)
+  const changeCount = (value: number) => {
+    setTotalPrice(parseFloat((value * product.price).toFixed(2)))
   }
 
   return (
@@ -25,11 +25,11 @@ function CartProductView(value: any, key: number) {
         <p className="desc">{product.description}</p>
       </div>
       <div className="counter">
-        <QuantityCounter />
+        <QuantityCounter changeCount={changeCount} />
       </div>
       <div className="price">
         <div className="val">
-          <b> $ {product.price}</b>
+          <b> $ {totalPrice}</b>
         </div>
       </div>
       <DeleteOutlined className="remove-icon" />
