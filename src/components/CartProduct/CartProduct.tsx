@@ -4,12 +4,14 @@ import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import { DeleteOutlined } from '@material-ui/icons';
 
-interface Props {
-  product: Product;
-  key: number;
-}
+function CartProductView(value: any, key: number) {
+  let product: Product = value.product
 
-const CartProductView: React.FunctionComponent<Props> = ({ product }) => {
+  let handleClick = (value: any) => {
+    // handle changes from child
+    console.log(value)
+  }
+
   return (
     <div
       className="cart-item"
@@ -33,6 +35,6 @@ const CartProductView: React.FunctionComponent<Props> = ({ product }) => {
       <DeleteOutlined className="remove-icon" />
     </div>
   );
-};
+}
 
 export default CartProductView;

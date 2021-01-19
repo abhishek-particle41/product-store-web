@@ -13,8 +13,8 @@ function OrderSummary() {
             <div className="summary">
                 <div className="box">
                     <div className="row">
-                        <h2>Total Amount : </h2>
-                        <span className="price">${totalPrice}</span>
+                        <h2 className="title">Total Amount:</h2>
+                        <span className="price">${totalPrice.toFixed(2)}</span>
                     </div>
                 </div>
             </div>
