@@ -22,7 +22,9 @@ function DisplayData(props: { isLoading: boolean; items?: any }) {
 function ProductList() {
     const dispatch = useDispatch();
     const itemState = useSelector((state: RootStore) => state.itemReducer);
-    useEffect(() => { dispatch(GetItem()) }, [])
+    useEffect(() => {
+        if (itemState.item == undefined) { dispatch(GetItem()) }
+    }, [])
     return (
         <div className="ProductList">
             <DisplayData
