@@ -1,6 +1,17 @@
 import store from "../../utils/store/store";
 import './style.scss'
 
+function Summary(cartProducts: number, totalPrice: number) {
+    if (cartProducts == 0) {
+        return <div className="row">
+            <h2 className="title">Your Cart Is Empty</h2>
+        </div>
+    } else return <div className="row">
+        <h2 className="title">Total Amount:</h2>
+        <span className="price">${totalPrice.toFixed(2)}</span>
+    </div>;
+}
+
 function OrderSummary() {
     let cartProducts: any = store.getState().productReducer
     let totalPrice: number = 0
@@ -12,10 +23,7 @@ function OrderSummary() {
         <div className="summary-screen" >
             <div className="summary">
                 <div className="box">
-                    <div className="row">
-                        <h2 className="title">Total Amount:</h2>
-                        <span className="price">${totalPrice.toFixed(2)}</span>
-                    </div>
+                    {Summary(cartProducts.length, totalPrice)}
                 </div>
             </div>
         </div>
