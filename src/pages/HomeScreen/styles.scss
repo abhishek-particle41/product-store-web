@@ -1,12 +1,10 @@
 .home-screen {
   position:relative;
-  padding-top: 10px;
-  text-align: center;
+  padding: 10px;
   .shelf-container {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
-    min-height: 600px;
+    align-content: center;
     .menu-icon {
       margin: 10px;
     }

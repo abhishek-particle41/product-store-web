@@ -30,19 +30,17 @@
 
   .title {
     position: relative;
-    padding: 20 20px;
     height: 38px;
     overflow: hidden;
     max-lines: 2;
   }
 
   .price {
-    height: 60px;
+    height: 30px;
     .val {
       b {
         font-size: 1.2em;
         white-space: nowrap;
-        // margin-left: 5px;
       }
     }
   }

@@ -25,10 +25,6 @@ function ProductList() {
     useEffect(() => { dispatch(GetItem()) }, [])
     return (
         <div className="ProductList">
-            <link
-                rel="stylesheet"
-                href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            />
             <DisplayData
                 isLoading={itemState.loading}
                 items={itemState.item}

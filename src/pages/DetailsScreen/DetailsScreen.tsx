@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './styles.scss'
 import { Product } from "../../utils/store/types"
-import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
 import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
 
 interface IProps {
