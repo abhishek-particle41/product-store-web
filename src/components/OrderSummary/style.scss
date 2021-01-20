@@ -1,0 +1,32 @@
+.summary-screen {
+    width: 50%;
+    margin: 20px auto;
+    box-shadow: 0 0 5px #ccc;
+    .summary{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .box{
+            margin: 15px;
+            .row{
+                display: flex;
+                justify-content: space-between;
+                .title {
+                    align-content: center;
+                    clear: both;
+                    display: inline-block;
+                    overflow: hidden;
+                }
+                .price {
+                    color: #6e5efe;
+                    text-align: center;
+                    width: 15%;
+                    font-weight: bolder;
+                    font-size: larger;
+                    margin-top: 20px;
+                    margin-right: 20px;
+                }
+              }
+            }
+    }
+}

@@ -3,6 +3,7 @@ import './styles.scss'
 import { Product } from "../../utils/store/types"
 import CartProductView from "../../components/CartProduct/CartProduct";
 import store from '../../utils/store/store'
+import OrderSummary from '../../components/OrderSummary/OrderSummary';
 
 class CartScreen extends React.Component {
     public state = {
@@ -25,6 +26,7 @@ class CartScreen extends React.Component {
                             <CartProductView product={value.product} key={index} />
                         );
                     })}
+                    <OrderSummary />
                 </div>
             </div>
         );
