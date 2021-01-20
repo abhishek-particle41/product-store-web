@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "../../utils/store/store";
 import { GetItem } from "../../utils/store/Item/itemActions";
@@ -22,15 +22,11 @@ function DisplayData(props: { isLoading: boolean; items?: any }) {
 function ProductList() {
     const dispatch = useDispatch();
     const itemState = useSelector((state: RootStore) => state.itemReducer);
-    const handleSubmit = () => dispatch(GetItem());
-
+    useEffect(() => {
+        if (itemState.item == undefined) { dispatch(GetItem()) }
+    }, [])
     return (
         <div className="ProductList">
-            <link
-                rel="stylesheet"
-                href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            />
-            <button onClick={handleSubmit}>Get Items</button>
             <DisplayData
                 isLoading={itemState.loading}
                 items={itemState.item}
