@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles.scss'
 import { Product } from "../../utils/store/types"
 import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
+import store from '../../utils/store/store'
 
 interface IProps {
     history: History;
@@ -15,13 +16,9 @@ class DetailsScreen extends React.Component<IProps, {}>{
     };
 
     componentDidMount() {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    items: json,
-                })
-            })
+        this.setState({
+            items: store.getState().itemReducer.item,
+        })
     }
 
     render() {
