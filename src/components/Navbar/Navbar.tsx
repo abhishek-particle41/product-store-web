@@ -7,6 +7,7 @@ import store from '../../utils/store/store'
 
 const Navbar = () => {
     const [scrolled, setScrolled] = React.useState(false);
+    const [value, setValue] = React.useState("");
     const handleScroll = () => {
         const offset = window.scrollY;
         if (offset > 80) {
@@ -19,6 +20,9 @@ const Navbar = () => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     }, [])
+    const handleChange = (value: string) => {
+        console.log(value)
+    }
 
     let x = ['navbar'];
     if (scrolled) {
@@ -32,7 +36,12 @@ const Navbar = () => {
                     <Link className="nav-links-home" to='/'>
                         <Home fontSize="large" />
                     </Link>
-                    <SearchBar className="search-bar" />
+                    <SearchBar
+                        className="search-bar"
+                        value={value}
+                        onChange={(newValue) => setValue(newValue)}
+                        onRequestSearch={() => handleChange(value)}
+                    />
                     <Link className="nav-links-cart" to='/cart'>
                         <span className="dot"></span>
                         <div className="nav-links-cart-items">{cattItems.length}</div>
