@@ -1,7 +1,7 @@
 import React from "react";
 import './styles.scss'
 
-function QuantityCounter(props: any) {
+const QuantityCounter = (props: any) => {
     const [count, setCount] = React.useState(1)
     let handleClick = (value: number) => {
         setCount(value)

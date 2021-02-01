@@ -12,7 +12,7 @@ function Summary(cartProducts: number, totalPrice: number) {
     </div>;
 }
 
-function OrderSummary() {
+const OrderSummary = () => {
     let cartProducts: any = store.getState().productReducer
     let totalPrice: number = 0
     cartProducts.map((value: any) => {

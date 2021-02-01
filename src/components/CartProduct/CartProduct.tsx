@@ -4,7 +4,7 @@ import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import { DeleteOutlined } from '@material-ui/icons';
 
-function CartProductView(value: any) {
+const CartProductView = (value: any) => {
   let product: Product = value.product
   const [totalPrice, setTotalPrice] = React.useState(product.price)
 
