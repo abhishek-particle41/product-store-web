@@ -1,39 +1,28 @@
-import * as React from 'react';
-import { DropDownList } from '@progress/kendo-react-dropdowns';
-import { filterBy } from '@progress/kendo-data-query';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCategories } from '../../utils/store/Categories/categoriesActions';
+import { RootStore } from '../../utils/store/store';
+import './styles.scss'
 
-const allData = [
-    { id: 1, text: "Small" },
-    { id: 2, text: "Medium" },
-    { id: 3, text: "Large" }
-];
-
-class FilterComponent extends React.Component {
-    state = {
-        data: allData.slice()
+const FilterComponent = () => {
+    const dispatch = useDispatch();
+    const filterChange = (event: any) => {
+        dispatch(updateCategories(event.value.trim()));
     };
-
-    filterChange = (event: any) => {
-        this.setState({
-            data: this.filterData(event.filter)
-        });
-    };
-
-    filterData(filter: any) {
-        const data = allData.slice();
-        return filterBy(data, filter);
-    };
-
-    render() {
-        return (
-            <DropDownList
-                data={this.state.data}
-                textField="text"
-                filterable={true}
-                onFilterChange={this.filterChange}
-            />
-        );
+    const options = ['categories'];
+    const defaultOption = options[0];
+    const items: any = useSelector((state: RootStore) => state.itemReducer.item);
+    if (items !== undefined) {
+        items.map((value: any) => {
+            if (!options.includes(value.category)) {
+                options.push(value.category);
+            }
+        })
     }
+    return (
+        <Dropdown className="dropdown" options={options} onChange={filterChange} value={defaultOption} placeholder="Select an option" />
+    );
 };
 
 export default FilterComponent;

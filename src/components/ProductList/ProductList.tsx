@@ -6,13 +6,13 @@ import ProductView from '../Product/Product';
 import { Product } from '../../utils/store/types';
 import { Spinner } from 'react-bootstrap';
 
-function DisplayData(props: { isLoading: boolean; items?: any; searchItem: string }) {
-    const { isLoading, items, searchItem } = props
+function DisplayData(props: { isLoading: boolean; items?: any; searchItem: string; category: string }) {
+    const { isLoading, items, searchItem, category } = props
     if (isLoading) {
         return <Spinner animation="border" />;
     } else return <div className="shelf-container">
         {items && items.map((value: Product, index: number) => {
-            if (value.title.includes(searchItem)) {
+            if (value.title.includes(searchItem) && (category == "categories" || category == value.category)) {
                 return (
                     <ProductView product={value} key={index} />
                 );
@@ -25,7 +25,10 @@ function ProductList() {
     const dispatch = useDispatch();
     const itemState = useSelector((state: RootStore) => state.itemReducer);
     const searchItemState = useSelector((state: RootStore) => state.searchItemReducer);
+    // const categoriesState = useSelector((state: RootStore) => state.categoriesReducer);
+    const category: any = useSelector((state: RootStore) => state.categoriesReducer);
     useEffect(() => {
+        console.log(category)
         if (itemState.item == undefined) { dispatch(GetItem()) }
     }, [])
     return (
@@ -34,6 +37,7 @@ function ProductList() {
                 isLoading={itemState.loading}
                 items={itemState.item}
                 searchItem={searchItemState}
+                category={category}
             />
         </div>
     );
