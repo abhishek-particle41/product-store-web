@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import './styles.scss'
 import { Home, ShoppingCart } from '@material-ui/icons';
 import SearchBar from "material-ui-search-bar";
-import store from '../../utils/store/store'
-import { useDispatch } from 'react-redux';
+import store, { RootStore } from '../../utils/store/store'
+import { useDispatch, useSelector } from 'react-redux';
 import { updateSearch } from '../../utils/store/Search/searchItemActions';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = React.useState(false);
-    const [value, setValue] = React.useState("");
     const dispatch = useDispatch();
+    const handleChange = (value: string) => {
+        dispatch(updateSearch(value));
+    }
     const handleScroll = () => {
         const offset = window.scrollY;
         if (offset > 80) {
@@ -23,15 +25,11 @@ const Navbar = () => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     }, [])
-    const handleChange = (value: string) => {
-        dispatch(updateSearch(value));
-    }
-
     let x = ['navbar'];
     if (scrolled) {
         x.push('scrolled');
     }
-    let cattItems: any = store.getState().productReducer
+    const cattItems: any = useSelector((state: RootStore) => state.productReducer);
     return (
         <header className={x.join(" ")}>
             <nav className="navbar">
@@ -41,9 +39,7 @@ const Navbar = () => {
                     </Link>
                     <SearchBar
                         className="search-bar"
-                        value={value}
-                        onChange={(newValue) => setValue(newValue)}
-                        onRequestSearch={() => handleChange(value)}
+                        onChange={(newValue) => handleChange(newValue)}
                     />
                     <Link className="nav-links-cart" to='/cart'>
                         <span className="dot"></span>
