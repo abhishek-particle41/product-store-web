@@ -4,10 +4,13 @@ import './styles.scss'
 import { Home, ShoppingCart } from '@material-ui/icons';
 import SearchBar from "material-ui-search-bar";
 import store from '../../utils/store/store'
+import { useDispatch } from 'react-redux';
+import { updateSearch } from '../../utils/store/Search/searchItemActions';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = React.useState(false);
     const [value, setValue] = React.useState("");
+    const dispatch = useDispatch();
     const handleScroll = () => {
         const offset = window.scrollY;
         if (offset > 80) {
@@ -21,7 +24,7 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll)
     }, [])
     const handleChange = (value: string) => {
-        console.log(value)
+        dispatch(updateSearch(value));
     }
 
     let x = ['navbar'];
