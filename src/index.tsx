@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 import { Provider } from "react-redux";
 import store from './utils/store/store'
-store.subscribe(() => {
-  console.log("Store changed", store.getState())
-})
 
 ReactDOM.render(
   <Provider store={store}>

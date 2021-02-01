@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "../../utils/store/store";
 import { GetItem } from "../../utils/store/Item/itemActions";
@@ -6,15 +6,17 @@ import ProductView from '../Product/Product';
 import { Product } from '../../utils/store/types';
 import { Spinner } from 'react-bootstrap';
 
-function DisplayData(props: { isLoading: boolean; items?: any }) {
-    const { isLoading, items } = props
+function DisplayData(props: { isLoading: boolean; items?: any; searchItem: string; category: string }) {
+    const { isLoading, items, searchItem, category } = props
     if (isLoading) {
         return <Spinner animation="border" />;
     } else return <div className="shelf-container">
         {items && items.map((value: Product, index: number) => {
-            return (
-                <ProductView product={value} key={index} />
-            );
+            if (value.title.includes(searchItem) && (category == "categories" || category == value.category)) {
+                return (
+                    <ProductView product={value} key={index} />
+                );
+            }
         })}
     </div>;
 }
@@ -22,18 +24,20 @@ function DisplayData(props: { isLoading: boolean; items?: any }) {
 function ProductList() {
     const dispatch = useDispatch();
     const itemState = useSelector((state: RootStore) => state.itemReducer);
-    const handleSubmit = () => dispatch(GetItem());
-
+    const searchItemState = useSelector((state: RootStore) => state.searchItemReducer);
+    // const categoriesState = useSelector((state: RootStore) => state.categoriesReducer);
+    const category: any = useSelector((state: RootStore) => state.categoriesReducer);
+    useEffect(() => {
+        console.log(category)
+        if (itemState.item == undefined) { dispatch(GetItem()) }
+    }, [])
     return (
         <div className="ProductList">
-            <link
-                rel="stylesheet"
-                href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            />
-            <button onClick={handleSubmit}>Get Items</button>
             <DisplayData
                 isLoading={itemState.loading}
                 items={itemState.item}
+                searchItem={searchItemState}
+                category={category}
             />
         </div>
     );
