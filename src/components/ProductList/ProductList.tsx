@@ -12,7 +12,7 @@ function DisplayData(props: { isLoading: boolean; items?: any; searchItem: strin
         return <Spinner animation="border" />;
     } else return <div className="shelf-container">
         {items && items.map((value: Product, index: number) => {
-            if (value.title.includes(searchItem) && (category == "categories" || category == value.category)) {
+            if (value.title.includes(searchItem) && (category.length === 0 || category.includes(value.category))) {
                 return (
                     <ProductView product={value} key={index} />
                 );
@@ -25,11 +25,10 @@ function ProductList() {
     const dispatch = useDispatch();
     const itemState = useSelector((state: RootStore) => state.itemReducer);
     const searchItemState = useSelector((state: RootStore) => state.searchItemReducer);
-    // const categoriesState = useSelector((state: RootStore) => state.categoriesReducer);
     const category: any = useSelector((state: RootStore) => state.categoriesReducer);
     useEffect(() => {
         console.log(category)
-        if (itemState.item == undefined) { dispatch(GetItem()) }
+        if (itemState.item === undefined) { dispatch(GetItem()) }
     }, [])
     return (
         <div className="ProductList">

@@ -2,7 +2,7 @@ import {
   UPDATE_CATEGORIES,
 } from "./categoriesActions";
 
-const initialState: string = "categories";
+const initialState: string[] = [];
 
 export default function categoriesReducer(
   state = initialState,

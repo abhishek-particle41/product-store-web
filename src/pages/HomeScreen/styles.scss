@@ -1,13 +1,15 @@
 .home-screen {
   position:relative;
   padding: 10px;
+  display: flex;
+  .filter-block {
+    margin: 10px;
+    max-width: min-content;
+  }
   .shelf-container {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    .menu-icon {
-      margin: 10px;
-    }
-  } 
+  }
 }
 

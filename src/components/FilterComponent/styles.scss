@@ -1,6 +1,11 @@
-.dropdown {
-    width: 180px;
+.side-nav {
+    width: 400px;
     height: 40px;
     margin: 5px;
-    padding-left: 50px;
+    .categories-label {
+        margin: 5px;
+    }
+    .side-nav-categories {
+        margin-top: 10px;
+    }
 }

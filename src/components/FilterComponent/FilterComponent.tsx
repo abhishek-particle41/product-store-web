@@ -3,15 +3,13 @@ import 'react-dropdown/style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCategories } from '../../utils/store/Categories/categoriesActions';
 import { RootStore } from '../../utils/store/store';
+import { Multiselect } from 'react-widgets'
+import 'react-widgets/dist/css/react-widgets.css'
 import './styles.scss'
 
 const FilterComponent = () => {
     const dispatch = useDispatch();
-    const filterChange = (event: any) => {
-        dispatch(updateCategories(event.value.trim()));
-    };
-    const options = ['categories'];
-    const defaultOption = options[0];
+    const options: string[] = [];
     const items: any = useSelector((state: RootStore) => state.itemReducer.item);
     if (items !== undefined) {
         items.map((value: any) => {
@@ -21,7 +19,16 @@ const FilterComponent = () => {
         })
     }
     return (
-        <Dropdown className="dropdown" options={options} onChange={filterChange} value={defaultOption} placeholder="Select an option" />
+        <div className="side-nav">
+            <label className="categories-label">FILTERS</label>
+            <Multiselect
+                containerClassName="side-nav-categories"
+                data={options}
+                // defaultValue={[options[0]]}
+                placeholder="Select Category"
+                onChange={value => dispatch(updateCategories(value))}
+            />
+        </div>
     );
 };
 
