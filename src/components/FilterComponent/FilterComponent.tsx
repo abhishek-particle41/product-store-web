@@ -1,11 +1,12 @@
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCategories } from '../../utils/store/Categories/categoriesActions';
+import { updateCategories } from '../../utils/store/Categories/filtersActions';
 import { RootStore } from '../../utils/store/store';
 import { Multiselect } from 'react-widgets'
 import 'react-widgets/dist/css/react-widgets.css'
 import './styles.scss'
+import React from 'react';
+import RangeSlider from '../PriceRange/RangeSlider';
 
 const FilterComponent = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,9 @@ const FilterComponent = () => {
                 placeholder="Select Category"
                 onChange={value => dispatch(updateCategories(value))}
             />
+            <div className="range-slider">
+                <RangeSlider />
+            </div>
         </div>
     );
 };

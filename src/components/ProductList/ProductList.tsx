@@ -8,11 +8,12 @@ import { Spinner } from 'react-bootstrap';
 
 function DisplayData(props: { isLoading: boolean; items?: any; searchItem: string; category: string }) {
     const { isLoading, items, searchItem, category } = props
+    const priceRange: any = useSelector((state: RootStore) => state.priceReducer);
     if (isLoading) {
         return <Spinner animation="border" />;
     } else return <div className="shelf-container">
         {items && items.map((value: Product, index: number) => {
-            if (value.title.includes(searchItem) && (category.length === 0 || category.includes(value.category))) {
+            if (value.title.includes(searchItem) && (category.length === 0 || category.includes(value.category)) && value.price >= priceRange[0] && value.price <= priceRange[1]) {
                 return (
                     <ProductView product={value} key={index} />
                 );
@@ -26,8 +27,9 @@ function ProductList() {
     const itemState = useSelector((state: RootStore) => state.itemReducer);
     const searchItemState = useSelector((state: RootStore) => state.searchItemReducer);
     const category: any = useSelector((state: RootStore) => state.categoriesReducer);
+    // const priceRange: any = useSelector((state: RootStore) => state.priceReducer);
     useEffect(() => {
-        console.log(category)
+        // console.log(priceRange)
         if (itemState.item === undefined) { dispatch(GetItem()) }
     }, [])
     return (
