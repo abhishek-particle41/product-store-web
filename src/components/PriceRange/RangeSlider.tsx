@@ -30,10 +30,8 @@ export default function RangeSlider() {
 
     return (
         <div className={classes.root}>
-            <Typography className="range-slider" gutterBottom>
-                Price range
-            </Typography>
             <Slider
+                className="range-slider"
                 value={value}
                 onChange={handleChange}
                 valueLabelDisplay="auto"

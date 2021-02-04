@@ -20,16 +20,22 @@ const FilterComponent = () => {
         })
     }
     return (
-        <div className="side-nav">
-            <label className="categories-label">FILTERS</label>
-            <Multiselect
-                containerClassName="side-nav-categories"
-                data={options}
-                // defaultValue={[options[0]]}
-                placeholder="Select Category"
-                onChange={value => dispatch(updateCategories(value))}
-            />
-            <div className="range-slider">
+        <div className="card mb-3">
+            <div className="card-header">
+                <h3>Categories</h3>
+            </div>
+            <div>
+                <Multiselect
+                    // containerClassName="side-nav-categories"
+                    data={options}
+                    placeholder="Select Category"
+                    onChange={value => dispatch(updateCategories(value))}
+                />
+            </div>
+            <div className="card-header-price">
+                <h3>Price Range</h3>
+            </div>
+            <div>
                 <RangeSlider />
             </div>
         </div>

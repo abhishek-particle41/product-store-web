@@ -6,6 +6,15 @@
     margin: 10px;
     max-width: min-content;
   }
+  .vertical-line {
+    background-color: #000;
+    position: fixed;
+    width: 2px;
+    height: 100%;
+    top: 10px;
+    left: 50%;
+    display: block;
+  }
   .shelf-container {
     display: flex;
     flex-wrap: wrap;
