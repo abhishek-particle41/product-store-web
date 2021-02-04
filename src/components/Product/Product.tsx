@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { Product } from '../../utils/store/types'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../utils/store/Product/productActions";
+import { RootStore } from "../../utils/store/store";
 
 interface IProps {
   product: Product;
-  key: number;
+  key: Number
+}
+
+enum button {
+  Add = "Add to cart",
+  Added = "Added to cart",
 }
 
 const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
   let history = useHistory()
   const dispatch = useDispatch();
+  const cartArray: any = useSelector((state: RootStore) => state.productReducer)
+  const [buttonText, setButtonText] = useState(button.Add)
+
+  useEffect(() => {
+    for (var i = 0; i < cartArray.length; i++) {
+      if (cartArray[i].product.title === product.title) {
+        setButtonText(button.Added)
+        break;
+      }
+    }
+  }, [])
 
   const handleClick = (e: any) => {
     if (e.target.id === 'addToCart') {
-      dispatch(addToCart(product));
+      if (buttonText === button.Add) {
+        dispatch(addToCart(product));
+        setButtonText(button.Added)
+      }
     } else {
       history.push({
         pathname: '/details/' + product.id,
@@ -35,7 +55,7 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
           <b> $ {product.price}</b>
         </div>
       </div>
-      <div className="buy-btn" id="addToCart">Add to cart</div>
+      <div className="buy-btn" id="addToCart">{buttonText}</div>
     </div >
   );
 };

@@ -1,4 +1,5 @@
-import store from "../../utils/store/store";
+import { useSelector } from "react-redux";
+import { RootStore } from "../../utils/store/store";
 import './style.scss'
 
 function Summary(cartProducts: number, totalPrice: number) {
@@ -13,7 +14,7 @@ function Summary(cartProducts: number, totalPrice: number) {
 }
 
 const OrderSummary = () => {
-    let cartProducts: any = store.getState().productReducer
+    const cartProducts: any = useSelector((state: RootStore) => state.productReducer)
     let totalPrice: number = 0
     cartProducts.map((value: any) => {
         totalPrice = totalPrice + value.product.price

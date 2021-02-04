@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.scss'
-import { Product } from "../../utils/store/types"
 import CartProductView from "../../components/CartProduct/CartProduct";
 import store from '../../utils/store/store'
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
