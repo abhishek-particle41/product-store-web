@@ -4,7 +4,6 @@
     display: flex;
     background-color: #6e5efe;
     z-index: 10;
-
     .nav-menu {
         display: grid;
         grid-template-columns: repeat(5, auto);
@@ -15,27 +14,29 @@
         .nav-links-home {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            // padding: 0.5rem 0.5rem;
             justify-content: flex-start;
             left: auto;
             &:hover {
                 background-color: #6d76f7;
-                border-radius: 4px;
+                border-radius: 10px;
                 transition: all 0.2s ease-out;
             }
         }
 
         .search-bar {
+            margin-left: 100px;
             width: 150%;
         }
     
         .nav-links-cart {
+            margin-left: 900px;
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.5rem;
             flex-direction: row;
             &:hover {
                 background-color: #6d76f7;
-                border-radius: 4px;
+                border-radius: 10px;
                 transition: all 0.2s ease-out;
             }
             &-items {

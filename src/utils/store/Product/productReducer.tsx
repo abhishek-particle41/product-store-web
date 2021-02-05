@@ -13,16 +13,9 @@ export default function productReducer(
     case ADD_TO_CART:
       return [
         ...state, action.payload
-        // {
-        //   product: action.payload
-        // }
-        // state.concat(action.payload)
       ]
     case REMOVE_PRODUCT_FROM_CART:
-      return [
-        ...state,
-        state.filter((item: any) => item.id !== action.payload),
-      ];
+      return state.filter((item: any) => item.id !== action.payload)
     default:
       return state;
   }

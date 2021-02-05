@@ -35,7 +35,7 @@ const Navbar = () => {
             <nav className="navbar">
                 <ul className='nav-menu'>
                     <Link className="nav-links-home" to='/'>
-                        <Home fontSize="large" />
+                        <Home style={{ fontSize: 50 }} />
                     </Link>
                     <SearchBar
                         className="search-bar"
@@ -44,7 +44,7 @@ const Navbar = () => {
                     <Link className="nav-links-cart" to='/cart'>
                         <span className="dot"></span>
                         <div className="nav-links-cart-items">{cattItems.length}</div>
-                        <ShoppingCart fontSize="large" />
+                        <ShoppingCart style={{ fontSize: 40 }} />
                     </Link>
                 </ul>
             </nav>
