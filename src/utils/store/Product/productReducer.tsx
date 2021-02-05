@@ -1,8 +1,9 @@
 import {
   ADD_TO_CART,
+  REMOVE_PRODUCT_FROM_CART,
 } from "./productActions";
 
-const initialState: never[] = [];
+const initialState: any = [];
 
 export default function productReducer(
   state = initialState,
@@ -11,12 +12,17 @@ export default function productReducer(
   switch (action.type) {
     case ADD_TO_CART:
       return [
-        ...state,
-        {
-          product: action.payload.product
-        }
+        ...state, action.payload
+        // {
+        //   product: action.payload
+        // }
+        // state.concat(action.payload)
       ]
-
+    case REMOVE_PRODUCT_FROM_CART:
+      return [
+        ...state,
+        state.filter((item: any) => item.id !== action.payload),
+      ];
     default:
       return state;
   }

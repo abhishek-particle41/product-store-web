@@ -22,7 +22,7 @@ class CartScreen extends React.Component {
                 <div className="cart-shelf">
                     {items.map((value: any, index: number) => {
                         return (
-                            <CartProductView product={value.product} key={index} />
+                            <CartProductView product={value} key={index} />
                         );
                     })}
                     <OrderSummary />

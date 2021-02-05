@@ -2,10 +2,13 @@ import React from "react";
 import "./style.scss";
 import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
-import { DeleteOutlined } from '@material-ui/icons';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { useDispatch } from "react-redux";
+import { removeProductToCart } from "../../utils/store/Product/productActions";
 
 const CartProductView = (value: any) => {
   let product: Product = value.product
+  const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = React.useState(product.price)
 
   const changeCount = (value: number) => {
@@ -32,7 +35,9 @@ const CartProductView = (value: any) => {
           <b> $ {totalPrice}</b>
         </div>
       </div>
-      <DeleteOutlined className="remove-icon" />
+      <div className="remove">
+        <DeleteIcon fontSize="large" onClick={() => dispatch(removeProductToCart(product.id))} />
+      </div>
     </div>
   );
 }
