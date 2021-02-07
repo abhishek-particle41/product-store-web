@@ -30,6 +30,10 @@ const Navbar = () => {
         x.push('scrolled');
     }
     const cattItems: any = useSelector((state: RootStore) => state.productReducer);
+    let totalItems: Number = 0
+    cattItems.map((item: any) => {
+        totalItems = totalItems + item.quantity
+    })
     return (
         <header className={x.join(" ")}>
             <nav className="navbar">
@@ -43,7 +47,7 @@ const Navbar = () => {
                     />
                     <Link className="nav-links-cart" to='/cart'>
                         <span className="dot"></span>
-                        <div className="nav-links-cart-items">{cattItems.length}</div>
+                        <div className="nav-links-cart-items">{totalItems}</div>
                         <ShoppingCart style={{ fontSize: 40 }} />
                     </Link>
                 </ul>

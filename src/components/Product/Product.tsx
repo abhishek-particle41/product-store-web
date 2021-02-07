@@ -25,17 +25,12 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
 
   useEffect(() => {
     for (var i = 0; i < cartArray.length; i++) {
-      if (cartArray[i].id === product.id) {
+      if (cartArray[i].product.id === product.id) {
         setButtonText(button.Added)
         break;
       }
     }
   }, [])
-
-  const changeCount = (value: number) => {
-    console.log(value)
-    // setTotalPrice(parseFloat((value * product.price).toFixed(2)))
-  }
 
   const handleClick = (e: any) => {
     console.log(e.target.id)

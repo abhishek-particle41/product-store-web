@@ -17,7 +17,7 @@ const OrderSummary = () => {
     const cartProducts: any = useSelector((state: RootStore) => state.productReducer)
     let totalPrice: number = 0
     cartProducts.map((value: any) => {
-        totalPrice = totalPrice + value.price
+        totalPrice = totalPrice + (value.product.price * value.quantity)
     })
 
     return (

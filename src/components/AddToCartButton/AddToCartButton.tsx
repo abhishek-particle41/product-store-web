@@ -17,7 +17,7 @@ function AddToCartButton(product: Product) {
 
     useEffect(() => {
         for (var i = 0; i < cartArray.length; i++) {
-            if (cartArray[i].id === product.id) {
+            if (cartArray[i].product.id === product.id) {
                 setButtonText(button.Added)
                 break;
             }

@@ -4,16 +4,11 @@ import { Product } from '../../utils/store/types'
 import QuantityCounter from '../../components/QuantityCounter/QuantityCounter'
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from "react-redux";
-import { removeProductToCart } from "../../utils/store/Product/productActions";
+import { removeProductToCart, updateCartQuantity } from "../../utils/store/Product/productActions";
 
-const CartProductView = (value: any) => {
-  let product: Product = value.product
+const CartProductView = (props: any) => {
+  let product: Product = props.product
   const dispatch = useDispatch();
-  const [totalPrice, setTotalPrice] = React.useState(product.price)
-
-  const changeCount = (value: number) => {
-    setTotalPrice(parseFloat((value * product.price).toFixed(2)))
-  }
 
   return (
     <div
@@ -28,11 +23,11 @@ const CartProductView = (value: any) => {
         <p className="desc">{product.description}</p>
       </div>
       <div className="counter">
-        <QuantityCounter changeCount={changeCount} />
+        <QuantityCounter product={props.product} quantity={props.quantity} />
       </div>
       <div className="price">
         <div className="val">
-          <b> $ {totalPrice}</b>
+          <b> $ {product.price * props.quantity}</b>
         </div>
       </div>
       <div className="remove">

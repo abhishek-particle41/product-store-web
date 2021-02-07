@@ -1,11 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { updateCartQuantity } from "../../utils/store/Product/productActions";
 import './styles.scss'
 
 const QuantityCounter = (props: any) => {
-    const [count, setCount] = React.useState(1)
+    const [count, setCount] = React.useState(props.quantity)
+    const dispatch = useDispatch();
     let handleClick = (value: number) => {
+        dispatch(updateCartQuantity(props.product, value));
         setCount(value)
-        props.changeCount(value)
     }
     return (
         <div className="quantity-input">

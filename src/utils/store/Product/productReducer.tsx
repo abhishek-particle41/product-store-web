@@ -1,6 +1,5 @@
 import {
-  ADD_TO_CART,
-  REMOVE_PRODUCT_FROM_CART,
+  actionTypes
 } from "./productActions";
 
 const initialState: any = [];
@@ -10,12 +9,20 @@ export default function productReducer(
   action: any
 ) {
   switch (action.type) {
-    case ADD_TO_CART:
+    case actionTypes.ADD_TO_CART:
       return [
         ...state, action.payload
       ]
-    case REMOVE_PRODUCT_FROM_CART:
-      return state.filter((item: any) => item.id !== action.payload)
+    case actionTypes.REMOVE_PRODUCT_FROM_CART:
+      return state.filter((item: any) => item.product.id !== action.payload)
+    case actionTypes.UPDATE_CART_QUANTITY:
+      const updatedCart = [...state];
+      updatedCart.map((item: any) => {
+        if (item.product.id === action.payload.product.id) {
+          item.quantity = action.payload.quantity;
+        }
+      })
+      return updatedCart
     default:
       return state;
   }
