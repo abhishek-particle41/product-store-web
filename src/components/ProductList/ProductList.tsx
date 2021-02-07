@@ -6,6 +6,7 @@ import ProductView from '../Product/Product';
 import { Product } from '../../utils/store/types';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "./style.scss";
 
 function DisplayData(props: { isLoading: boolean; items?: any; searchItem: string; category: string }) {
     const { isLoading, items, searchItem, category } = props
@@ -13,7 +14,7 @@ function DisplayData(props: { isLoading: boolean; items?: any; searchItem: strin
     if (isLoading) {
         return <div className="item-loader">
             <Loader
-                type="ThreeDots"
+                type="TailSpin"
                 color="#6d76f7"
                 height={100}
                 width={100}
