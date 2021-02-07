@@ -20,7 +20,13 @@ const FilterComponent = () => {
         })
     }
     return (
-        <div className="card mb-3">
+        <div className="card">
+            <div className="card-header-price">
+                <h3>Price Range</h3>
+            </div>
+            <div>
+                <RangeSlider />
+            </div>
             <div className="card-header">
                 <h3>Categories</h3>
             </div>
@@ -31,12 +37,6 @@ const FilterComponent = () => {
                     placeholder="Select Category"
                     onChange={value => dispatch(updateCategories(value))}
                 />
-            </div>
-            <div className="card-header-price">
-                <h3>Price Range</h3>
-            </div>
-            <div>
-                <RangeSlider />
             </div>
         </div>
     );

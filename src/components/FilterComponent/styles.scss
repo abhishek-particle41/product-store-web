@@ -1,4 +1,10 @@
-.card-header-price {
-    // background-color: aqua;
-    margin-top: 150px;
+.card {
+    border-block: 1px;
+    border-block: 2px dotted;
+    border-block: medium #6d76f7;
+    border: #6d76f7;
+
+    .card-header-price {
+        margin-top: 50px;
+    }
 }

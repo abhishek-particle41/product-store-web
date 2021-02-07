@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../utils/store/Product/productActions";
 import { RootStore } from "../../utils/store/store";
+import QuantityCounter from "../QuantityCounter/QuantityCounter";
 
 interface IProps {
   product: Product;
@@ -31,13 +32,22 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
     }
   }, [])
 
+  const changeCount = (value: number) => {
+    console.log(value)
+    // setTotalPrice(parseFloat((value * product.price).toFixed(2)))
+  }
+
   const handleClick = (e: any) => {
+    console.log(e.target.id)
     if (e.target.id === 'addToCart') {
       if (buttonText === button.Add) {
         dispatch(addToCart(product));
         setButtonText(button.Added)
       }
-    } else {
+    } else if (e.target.id === 'quantityCounter') {
+      console.log("change quantity")
+    }
+    else {
       history.push({
         pathname: '/details/' + product.id,
       });
@@ -56,6 +66,9 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
         </div>
       </div>
       <div className="buy-btn" id="addToCart">{buttonText}</div>
+      {/* <div className="buy-btn" id="quantityCounter">
+        <QuantityCounter changeCount={changeCount} />
+      </div> */}
     </div >
   );
 };

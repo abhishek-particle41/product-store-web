@@ -3,6 +3,7 @@ import './styles.scss'
 import ProductList from "../../components/ProductList/ProductList"
 import FilterComponent from '../../components/FilterComponent/FilterComponent';
 import ToastMessage from '../../components/ToastMessage/ToastMessage';
+import ResultNumber from '../../components/Home/ResultNumber/ResultNumber';
 
 class HomeScreen extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class HomeScreen extends React.Component {
         </div>
         {/* <ToastMessage /> */}
         <div className="shelf-container">
+          <ResultNumber />
           <ProductList />
         </div>
       </div>
