@@ -21,6 +21,10 @@ const FilterComponent = () => {
     }
     return (
         <div className="card">
+            <div className="number-screen" >
+                <h2 className="number-screen_label">FILTERS</h2>
+            </div>
+            <div className="line"></div>
             <div className="card-header-price">
                 <h3>Price Range</h3>
             </div>
@@ -32,12 +36,12 @@ const FilterComponent = () => {
             </div>
             <div>
                 <Multiselect
-                    // containerClassName="side-nav-categories"
                     data={options}
                     placeholder="Select Category"
                     onChange={value => dispatch(updateCategories(value))}
                 />
             </div>
+            <div className="line"></div>
         </div>
     );
 };

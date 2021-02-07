@@ -11,8 +11,10 @@ function CartScreen() {
         <div className="float-cart">
             <div className="cart-shelf">
                 {items.map((value: any, index: number) => {
-                    return (
+                    return (<div>
                         <CartProductView product={value.product} quantity={value.quantity} key={index} />
+                        <div className="horizontal-line"></div>
+                    </div>
                     );
                 })}
                 <OrderSummary />

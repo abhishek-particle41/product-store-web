@@ -12,6 +12,7 @@ class HomeScreen extends React.Component {
         <div className="filter-block">
           <FilterComponent />
         </div>
+        <div className="vertical-line"></div>
         {/* <ToastMessage /> */}
         <div className="shelf-container">
           <ResultNumber />

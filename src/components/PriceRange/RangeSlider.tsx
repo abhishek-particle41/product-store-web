@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import './styles.scss'
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,7 +33,7 @@ export default function RangeSlider() {
                 className="range-slider"
                 value={value}
                 onChange={handleChange}
-                valueLabelDisplay="auto"
+                valueLabelDisplay="on"
                 aria-labelledby="range-slider"
                 max={1000}
                 getAriaValueText={valuetext}
