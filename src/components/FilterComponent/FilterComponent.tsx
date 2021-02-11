@@ -12,6 +12,7 @@ const FilterComponent = () => {
     const dispatch = useDispatch();
     const options: string[] = [];
     const items: any = useSelector((state: RootStore) => state.itemReducer.item);
+
     if (items !== undefined) {
         items.map((value: any) => {
             if (!options.includes(value.category)) {
@@ -20,18 +21,16 @@ const FilterComponent = () => {
         })
     }
     return (
-        <div className="card">
-            <div className="number-screen" >
-                <h2 className="number-screen_label">FILTERS</h2>
-            </div>
+        <div className="filter-container">
+            <h2 className="my-4">FILTERS</h2>
             <div className="line"></div>
-            <div className="card-header-price">
+            <div className="price-title">
                 <h3>Price Range</h3>
             </div>
-            <div>
+            <div className="range-slider">
                 <RangeSlider />
             </div>
-            <div className="card-header">
+            <div className="categories-title">
                 <h3>Categories</h3>
             </div>
             <div>
@@ -41,7 +40,7 @@ const FilterComponent = () => {
                     onChange={value => dispatch(updateCategories(value))}
                 />
             </div>
-            <div className="line"></div>
+
         </div>
     );
 };

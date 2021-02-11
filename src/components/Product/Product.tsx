@@ -62,7 +62,7 @@ const ProductView: React.FunctionComponent<IProps> = ({ product }) => {
       </div>
       <div className="buy-btn" id="addToCart">{buttonText}</div>
       {/* <div className="buy-btn" id="quantityCounter">
-        <QuantityCounter changeCount={changeCount} />
+        <QuantityCounter />
       </div> */}
     </div >
   );

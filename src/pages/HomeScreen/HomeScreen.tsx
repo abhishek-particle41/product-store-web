@@ -2,21 +2,20 @@ import React from 'react';
 import './styles.scss'
 import ProductList from "../../components/ProductList/ProductList"
 import FilterComponent from '../../components/FilterComponent/FilterComponent';
-import ToastMessage from '../../components/ToastMessage/ToastMessage';
 import ResultNumber from '../../components/Home/ResultNumber/ResultNumber';
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <div className="home-screen" >
-        <div className="filter-block">
-          <FilterComponent />
-        </div>
-        <div className="vertical-line"></div>
-        {/* <ToastMessage /> */}
-        <div className="shelf-container">
-          <ResultNumber />
-          <ProductList />
+      <div className="containers">
+        <div className="row">
+          <div className="col-lg-3">
+            <FilterComponent />
+          </div>
+          <div className="col-lg-9">
+            <ResultNumber />
+            <ProductList />
+          </div>
         </div>
       </div>
     );

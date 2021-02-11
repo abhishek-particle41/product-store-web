@@ -13,14 +13,15 @@ const Navbar = () => {
     const handleChange = (value: string) => {
         dispatch(updateSearch(value.trim()));
     }
+
     const handleScroll = () => {
-        const offset = window.scrollY;
-        if (offset > 80) {
-            setScrolled(true);
-        }
-        else {
-            setScrolled(false);
-        }
+        // const offset = window.scrollY;
+        // if (offset > 80) {
+        //     setScrolled(true);
+        // }
+        // else {
+        //     setScrolled(false);
+        // }
     }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -36,15 +37,17 @@ const Navbar = () => {
     })
     return (
         <header className={x.join(" ")}>
-            <nav className="navbar">
+            <nav className="navbar navbar-expand-lg">
                 <ul className='nav-menu'>
                     <Link className="nav-links-home" to='/'>
                         <Home style={{ fontSize: 50 }} />
                     </Link>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
                     <SearchBar
                         className="search-bar"
-                        onChange={(newValue) => handleChange(newValue)}
-                    />
+                        onChange={(newValue) => handleChange(newValue)} />
                     <Link className="nav-links-cart" to='/cart'>
                         <span className="dot"></span>
                         <div className="nav-links-cart-items">{totalItems}</div>
@@ -54,6 +57,29 @@ const Navbar = () => {
             </nav>
 
         </header>
+        // <nav className="navbar navbar-expand-lg navbar-light">
+        //     {/* <a className="navbar-brand" href="#">Navbar</a> */}
+        //     <Link className="nav-links-home" to='/'>
+        //         <Home style={{ fontSize: 50 }} />
+        //     </Link>
+        // <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        //     <span className="navbar-toggler-icon"></span>
+        // </button>
+        //     <div className="collapse navbar-collapse" id="navbarNav">
+        //         <ul className="navbar-nav">
+        //             <div className="search-bar">
+        //                 <SearchBar
+        //                     className="search-bar"
+        //                     onChange={(newValue) => handleChange(newValue)} />
+        //             </div>
+        //             <Link className="nav-links-cart" to='/cart'>
+        //                 {/* <span className="dot"></span> */}
+        //                 <div className="nav-links-cart-items">{totalItems}</div>
+        //                 <ShoppingCart style={{ fontSize: 40 }} />
+        //             </Link>
+        //         </ul>
+        //     </div>
+        // </nav>
     )
 };
 

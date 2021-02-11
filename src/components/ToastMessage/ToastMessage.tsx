@@ -1,24 +1,25 @@
-import { Button } from "@material-ui/core";
-import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import React from "react";
 import Toast from 'react-bootstrap/Toast'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.scss'
 
 export default function ToastMessage() {
-    const [show, setShow] = useState(false);
-
     return (
-        <Row>
-            <Col xs={6}>
-                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
-                    <Toast.Header>
-                        Added to cart!
-                    </Toast.Header>
-                </Toast>
-            </Col>
-            <Col xs={6}>
-                <Button onClick={() => setShow(true)}>Show Toast</Button>
-            </Col>
-        </Row>
+        <div
+            className="toast-message"
+        >
+            <Toast
+                delay={5000}
+                autohide={true}
+                style={{
+                    // position: 'absolute',
+                    top: 0,
+                    right: 0,
+                }}
+            >
+                <Toast.Header closeButton={false}>
+                    <strong className="mr-auto">Added to cart</strong>
+                </Toast.Header>
+            </Toast>
+        </div>
     );
 }
